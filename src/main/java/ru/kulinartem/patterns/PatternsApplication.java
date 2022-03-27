@@ -8,6 +8,10 @@ import ru.kulinartem.patterns.abstract_factory.ProjectTeamFactory;
 import ru.kulinartem.patterns.abstract_factory.Tester;
 import ru.kulinartem.patterns.abstract_factory.banking.BankingTeamFactory;
 import ru.kulinartem.patterns.abstract_factory.website.WebsiteTeamFactory;
+import ru.kulinartem.patterns.builder.Director;
+import ru.kulinartem.patterns.builder.EnterpriseWebsiteBuilder;
+import ru.kulinartem.patterns.builder.VisitCardWebsiteBuilder;
+import ru.kulinartem.patterns.builder.Website;
 import ru.kulinartem.patterns.factory_method.DeveloperFactory;
 import ru.kulinartem.patterns.factory_method.DeveloperFactoryUtil;
 import ru.kulinartem.patterns.singleton.ProgramLogger;
@@ -65,6 +69,16 @@ public class PatternsApplication {
         ProgramLogger.getProgramLogger().showLogFile();
         System.out.println("---------------------------------------------------------------");
 
+        System.out.println("*** Builder ***\n");
+        Director director = new Director();
+        director.setBuilder(new VisitCardWebsiteBuilder());
+        Website visitCardWebsite = director.buildWebsite();
+        System.out.println("This is website from visitCardBuilder " + visitCardWebsite);
+        director.setBuilder(new EnterpriseWebsiteBuilder());
+        Website enterpriseWebsite = director.buildWebsite();
+        System.out.println("This is website from enterpriseBuilder " + enterpriseWebsite);
+
+        System.out.println("---------------------------------------------------------------");
     }
 
 }
