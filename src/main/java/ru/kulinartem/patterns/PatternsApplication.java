@@ -10,6 +10,9 @@ import ru.kulinartem.patterns.abstract_factory.banking.BankingTeamFactory;
 import ru.kulinartem.patterns.abstract_factory.website.WebsiteTeamFactory;
 import ru.kulinartem.patterns.factory_method.DeveloperFactory;
 import ru.kulinartem.patterns.factory_method.DeveloperFactoryUtil;
+import ru.kulinartem.patterns.singleton.ProgramLogger;
+
+import java.sql.SQLOutput;
 
 @SpringBootApplication
 public class PatternsApplication {
@@ -50,6 +53,18 @@ public class PatternsApplication {
         websiteProjectManager.manageCode();
 
         System.out.println("---------------------------------------------------------------");
+
+        System.out.println("*** Singleton ***");
+        System.out.println("Is the same object of ProgramLogger by calling get instance method? The answer is " +
+               ProgramLogger.getProgramLogger().equals(ProgramLogger.getProgramLogger()));
+        System.out.println(ProgramLogger.getProgramLogger());
+        System.out.println(ProgramLogger.getProgramLogger());
+        ProgramLogger.getProgramLogger().addLogFile("This is log A");
+        ProgramLogger.getProgramLogger().addLogFile("This is log B");
+
+        ProgramLogger.getProgramLogger().showLogFile();
+        System.out.println("---------------------------------------------------------------");
+
     }
 
 }
