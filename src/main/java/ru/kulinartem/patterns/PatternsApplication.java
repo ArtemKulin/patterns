@@ -14,6 +14,8 @@ import ru.kulinartem.patterns.builder.VisitCardWebsiteBuilder;
 import ru.kulinartem.patterns.builder.Website;
 import ru.kulinartem.patterns.factory_method.DeveloperFactory;
 import ru.kulinartem.patterns.factory_method.DeveloperFactoryUtil;
+import ru.kulinartem.patterns.prototype.Project;
+import ru.kulinartem.patterns.prototype.ProjectFactory;
 import ru.kulinartem.patterns.singleton.ProgramLogger;
 
 import java.sql.SQLOutput;
@@ -79,6 +81,16 @@ public class PatternsApplication {
         System.out.println("This is website from enterpriseBuilder " + enterpriseWebsite);
 
         System.out.println("---------------------------------------------------------------");
+
+        System.out.println("*** Prototype ***\n");
+        Project project = new Project(1, "projectName", "projectSource");
+        ProjectFactory factory = new ProjectFactory(project);
+        Project clonedProject = factory.cloneProject();
+        System.out.println("Real project is " + project);
+        System.out.println("Cloned project is " + clonedProject);
+
+        System.out.println("---------------------------------------------------------------");
+
     }
 
 }
