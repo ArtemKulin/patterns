@@ -8,6 +8,8 @@ import ru.kulinartem.patterns.abstract_factory.ProjectTeamFactory;
 import ru.kulinartem.patterns.abstract_factory.Tester;
 import ru.kulinartem.patterns.abstract_factory.banking.BankingTeamFactory;
 import ru.kulinartem.patterns.abstract_factory.website.WebsiteTeamFactory;
+import ru.kulinartem.patterns.adapter.AdapterJavaToDatabase;
+import ru.kulinartem.patterns.adapter.Database;
 import ru.kulinartem.patterns.builder.Director;
 import ru.kulinartem.patterns.builder.EnterpriseWebsiteBuilder;
 import ru.kulinartem.patterns.builder.VisitCardWebsiteBuilder;
@@ -90,6 +92,16 @@ public class PatternsApplication {
         System.out.println("Cloned project is " + clonedProject);
 
         System.out.println("---------------------------------------------------------------");
+
+        System.out.println("*** Adapter ***\n");
+        Database database = new AdapterJavaToDatabase();
+        database.delete();
+        database.insert();
+        database.save();
+        database.update();
+
+        System.out.println("---------------------------------------------------------------");
+
 
     }
 
