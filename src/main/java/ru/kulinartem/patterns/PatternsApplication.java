@@ -19,13 +19,13 @@ import ru.kulinartem.patterns.builder.Director;
 import ru.kulinartem.patterns.builder.EnterpriseWebsiteBuilder;
 import ru.kulinartem.patterns.builder.VisitCardWebsiteBuilder;
 import ru.kulinartem.patterns.builder.Website;
+import ru.kulinartem.patterns.composite.Team;
 import ru.kulinartem.patterns.factory_method.DeveloperFactory;
 import ru.kulinartem.patterns.factory_method.DeveloperFactoryUtil;
 import ru.kulinartem.patterns.prototype.Project;
 import ru.kulinartem.patterns.prototype.ProjectFactory;
 import ru.kulinartem.patterns.singleton.ProgramLogger;
 
-import java.sql.SQLOutput;
 
 @SpringBootApplication
 public class PatternsApplication {
@@ -116,7 +116,6 @@ public class PatternsApplication {
         phpProgram.developProgram();
         phpWithJava.developProgram();
         System.out.println("---------------------------------------------------------------");
-
     }
 
 }
