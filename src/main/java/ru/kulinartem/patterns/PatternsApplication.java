@@ -10,6 +10,11 @@ import ru.kulinartem.patterns.abstract_factory.banking.BankingTeamFactory;
 import ru.kulinartem.patterns.abstract_factory.website.WebsiteTeamFactory;
 import ru.kulinartem.patterns.adapter.AdapterJavaToDatabase;
 import ru.kulinartem.patterns.adapter.Database;
+import ru.kulinartem.patterns.bridge.JavaDeveloper;
+import ru.kulinartem.patterns.bridge.JavaProgram;
+import ru.kulinartem.patterns.bridge.PhpDeveloper;
+import ru.kulinartem.patterns.bridge.PhpProgram;
+import ru.kulinartem.patterns.bridge.Program;
 import ru.kulinartem.patterns.builder.Director;
 import ru.kulinartem.patterns.builder.EnterpriseWebsiteBuilder;
 import ru.kulinartem.patterns.builder.VisitCardWebsiteBuilder;
@@ -102,6 +107,15 @@ public class PatternsApplication {
 
         System.out.println("---------------------------------------------------------------");
 
+        System.out.println("*** Bridge ***\n");
+        Program javaProgram = new JavaProgram(new JavaDeveloper());
+        Program phpProgram = new PhpProgram(new PhpDeveloper());
+        Program phpWithJava = new PhpProgram(new JavaDeveloper());
+
+        javaProgram.developProgram();
+        phpProgram.developProgram();
+        phpWithJava.developProgram();
+        System.out.println("---------------------------------------------------------------");
 
     }
 
